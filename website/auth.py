@@ -24,7 +24,7 @@ def login():
         else:
             flash('Username doesn\'t exist!', category='error')
     
-    return render_template('login.html', boolean=True)
+    return render_template('login.html', user = current_user)
 
 @auth.route('/logout')
 @login_required
@@ -65,4 +65,4 @@ def sign_up():
             return redirect(url_for('views.home'))
             
     #return the template.html 
-    return render_template('signup.html')
+    return render_template('signup.html', user= current_user)
